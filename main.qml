@@ -1,7 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
-import io.qt.examples.backend 1.0
+import jogo.backend 1.0
 
 ApplicationWindow {
     id: root
@@ -9,7 +9,7 @@ ApplicationWindow {
     height: 610
     visible: true
 
-    BackEnd {
+    Jogo {
         id: backend
     }
 
@@ -94,7 +94,7 @@ ApplicationWindow {
 	border.width: 5
 	radius: 10
     anchors {left: outer2.right ; leftMargin: 10; top: parent.top ; topMargin: 10;}
-   
+
         Rectangle
          {
            anchors.centerIn: parent
@@ -130,7 +130,7 @@ ApplicationWindow {
 	border.width: 5
 	radius: 10
     anchors {left: outer3.right ; leftMargin: 10 ; top: parent.top ; topMargin:10 ;}
-  
+
         Rectangle
          {
            anchors.centerIn: parent
@@ -394,6 +394,18 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer11.width - 10
            height: outer11.height -10
+           MouseArea {
+               anchors.fill: parent
+               propagateComposedEvents: true
+               onClicked: {
+                   backend.checkpos11(parseInt(text11.text))
+                   console.log("click11")
+                   console.log(parseInt(backend.pos11))
+                   text12.text = backend.pos11
+                   root.update()
+               }
+           }
+
 
             RadialGradient {
                  anchors.fill: parent
@@ -406,7 +418,7 @@ ApplicationWindow {
                   Text{
                       id: text11
                        anchors{centerIn: parent}
-                       text: "11"
+                       text: backend.pos11
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -432,6 +444,16 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer12.width - 10
            height: outer12.height -10
+           MouseArea {
+               anchors.fill: parent
+               propagateComposedEvents: true
+               onClicked: {
+                   backend.checkpos12(parseInt(text12.text))
+                   console.log("click12")
+                   console.log(parseInt(backend.pos12))
+                   text12.text = backend.pos12
+               }
+           }
 
             RadialGradient {
                  anchors.fill: parent
@@ -444,7 +466,7 @@ ApplicationWindow {
                   Text{
                       id: text12
                        anchors{centerIn: parent}
-                       text: "12"
+                       text: backend.pos12
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -469,7 +491,13 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer13.width - 10
            height: outer13.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
 
+             }
+}
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -505,7 +533,13 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer14.width - 10
            height: outer14.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
 
+             }
+}
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -542,7 +576,16 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer15.width - 10
            height: outer15.height -10
-
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+               //backend.checkpos15(parseInt(text15.text))
+                 console.log("click15")
+                 console.log(backend.pos15)
+                 text15.update()
+             }
+}
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -554,7 +597,7 @@ ApplicationWindow {
                   Text{
                       id: text15
                        anchors{centerIn: parent}
-                       text: "14"
+                       text: backend.pos15
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -568,7 +611,7 @@ ApplicationWindow {
     id: outer16
     width: outer1.width
     height: outer1.height
-    visible: false
+    visible: true
     border.color: "#63B2F6"
 	border.width: 5
     anchors {left: outer15.right ; leftMargin: 10 ; top: outer12.bottom ; topMargin:10 ;}
@@ -579,7 +622,16 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer16.width - 10
            height: outer16.height -10
-
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+               //backend.checkpos16(parseInt(text16.text))
+                 console.log("click16")
+                 console.log(backend.pos16)
+                 text16.update()
+             }
+}
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -591,7 +643,7 @@ ApplicationWindow {
                   Text{
                       id: text16
                        anchors{centerIn: parent}
-                       text: "16"
+                       text: backend.pos16
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -600,8 +652,21 @@ ApplicationWindow {
         }
 
     }
+    function check16(object)
+    {
+        console.log(text16.text)
+        if (object == 16)
+        {
+        console.log("e mentira")
+            return false
+        }
+        else
+        {
+        console.log("e verdade")
+            return true
+        }
 
-
+    }
 
 
 }
