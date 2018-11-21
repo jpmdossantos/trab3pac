@@ -464,7 +464,7 @@ void Jogo::checkchanges()
     if (pos3!=getValue(0,2))
     {
       pos3=getValue(0,2);
-      emit _2changed();
+      emit _3changed();
     }
     if (pos4!=getValue(0,3))
     {

@@ -28,7 +28,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer1.width - 10
            height: outer1.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text1.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -40,7 +48,7 @@ ApplicationWindow {
                   Text{
                        id: text1
                        anchors{centerIn: parent}
-                       text: "1"
+                       text: backend.pos1
                        font.family: "Helvetica"
                        font.pointSize: outer1.height/3.5
                        color: "white"
@@ -64,6 +72,15 @@ ApplicationWindow {
            width: outer2.width - 10
            height: outer2.height -10
 
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text2.text))
+                 checkvisibility()
+
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -75,7 +92,7 @@ ApplicationWindow {
                   Text{
                       id: text2
                        anchors{centerIn: parent}
-                       text: "2"
+                       text: backend.pos2
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -100,7 +117,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer3.width - 10
            height: outer3.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text3.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -112,7 +137,7 @@ ApplicationWindow {
                   Text{
                       id: text3
                        anchors{centerIn: parent}
-                       text: "3"
+                       text: backend.pos3
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -137,6 +162,15 @@ ApplicationWindow {
            width: outer4.width - 10
            height: outer4.height -10
 
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text4.text))
+                 checkvisibility()
+
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -148,7 +182,7 @@ ApplicationWindow {
                   Text{
                        id: text4
                        anchors{centerIn: parent}
-                       text: "4"
+                       text: backend.pos4
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -173,7 +207,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer5.width - 10
            height: outer5.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text5.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -185,7 +227,7 @@ ApplicationWindow {
                   Text{
                       id: text5
                        anchors{centerIn: parent}
-                       text: "5"
+                       text: backend.pos5
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -209,7 +251,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer6.width - 10
            height: outer6.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text6.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -221,7 +271,7 @@ ApplicationWindow {
                   Text{
                       id: text6
                        anchors{centerIn: parent}
-                       text: "6"
+                       text: backend.pos6
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -247,7 +297,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer7.width - 10
            height: outer7.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text7.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -259,7 +317,7 @@ ApplicationWindow {
                   Text{
                       id: text7
                        anchors{centerIn: parent}
-                       text: "7"
+                       text: backend.pos7
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -284,7 +342,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer8.width - 10
            height: outer8.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text8.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -296,7 +362,7 @@ ApplicationWindow {
                   Text{
                       id: text8
                        anchors{centerIn: parent}
-                       text: "8"
+                       text: backend.pos8
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -321,7 +387,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer9.width - 10
            height: outer9.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text9.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -333,7 +407,7 @@ ApplicationWindow {
                   Text{
                       id: text9
                        anchors{centerIn: parent}
-                       text: "9"
+                       text: backend.pos9
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -358,7 +432,15 @@ ApplicationWindow {
            anchors.centerIn: parent
            width: outer10.width - 10
            height: outer10.height -10
+           MouseArea {
+             anchors.fill: parent
+             propagateComposedEvents: true
+             onClicked: {
+                 backend.change(parseInt(text10.text))
+                 checkvisibility()
 
+             }
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -370,7 +452,7 @@ ApplicationWindow {
                   Text{
                       id: text10
                        anchors{centerIn: parent}
-                       text: "10"
+                       text: backend.pos10
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -496,9 +578,11 @@ ApplicationWindow {
              anchors.fill: parent
              propagateComposedEvents: true
              onClicked: {
+                 backend.change(parseInt(text13.text))
+                 checkvisibility()
 
              }
-}
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -510,7 +594,7 @@ ApplicationWindow {
                   Text{
                       id: text13
                        anchors{centerIn: parent}
-                       text: "13"
+                       text: backend.pos13
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -538,9 +622,11 @@ ApplicationWindow {
              anchors.fill: parent
              propagateComposedEvents: true
              onClicked: {
+                 backend.change(parseInt(text14.text))
+                 checkvisibility()
 
              }
-}
+           }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -552,7 +638,7 @@ ApplicationWindow {
                   Text{
                       id: text14
                        anchors{centerIn: parent}
-                       text: "14"
+                       text: backend.pos14
                        font.family: "Helvetica"
                        font.pointSize: text1.font.pointSize
                        color: "white"
@@ -587,7 +673,7 @@ ApplicationWindow {
                  checkvisibility()
 
              }
-}
+            }
             RadialGradient {
                  anchors.fill: parent
                  gradient: Gradient
@@ -629,8 +715,6 @@ ApplicationWindow {
              propagateComposedEvents: true
              onClicked: {
                  backend.change(parseInt(text16.text))
-                 console.log("click16")
-                 console.log(parseInt(backend.pos16))
                  checkvisibility()
 
              }
@@ -655,16 +739,111 @@ ApplicationWindow {
         }
 
     }
+
     function checkvisibility()
     {
-        console.log("o onze ta :")
-        console.log(text11.text)
-        console.log("o doze ta :")
-        console.log(text12.text)
-        console.log("o quinze ta :")
-        console.log(text15.text)
-        console.log("o dezesseis ta :")
-        console.log(text16.text)
+        if (text1.text == 16)
+        {
+        outer1.visible = false
+        }
+        else
+        {
+        outer1.visible = true
+        }
+
+        if (text2.text == 16)
+        {
+        outer2.visible = false
+        }
+        else
+        {
+        outer2.visible = true
+        }
+
+        if (text3.text == 16)
+        {
+        outer3.visible = false
+        }
+        else
+        {
+        outer3.visible = true
+        }
+
+        if (text4.text == 16)
+        {
+        outer4.visible = false
+        }
+        else
+        {
+        outer4.visible = true
+        }
+        if (text5.text == 16)
+        {
+        outer5.visible = false
+        }
+        else
+        {
+        outer5.visible = true
+        }
+        if (text6.text == 16)
+        {
+        outer6.visible = false
+        }
+        else
+        {
+        outer6.visible = true
+        }
+        if (text7.text == 16)
+        {
+        outer7.visible = false
+        }
+        else
+        {
+        outer7.visible = true
+        }
+        if (text8.text == 16)
+        {
+        outer8.visible = false
+        }
+        else
+        {
+        outer8.visible = true
+        }
+        if (text9.text == 16)
+        {
+        outer9.visible = false
+        }
+        else
+        {
+        outer9.visible = true
+        }
+        if (text10.text == 16)
+        {
+        outer10.visible = false
+        }
+        else
+        {
+        outer10.visible = true
+        }
+
+        if (text14.text == 16)
+        {
+        outer14.visible = false
+        }
+        else
+        {
+        outer14.visible = true
+        }
+
+        if (text13.text == 16)
+        {
+        outer13.visible = false
+        }
+        else
+        {
+        outer13.visible = true
+        }
+
 
         if (text11.text == 16)
         {
@@ -703,5 +882,4 @@ ApplicationWindow {
         }
 
     }
-
 }
