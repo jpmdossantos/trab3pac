@@ -103,6 +103,7 @@ if (this->posit[lind][col]==16 && lind != lin)
 
   this->posit[lind][col] = this->posit[lin][col];
   this->posit[lin][col]=16;
+  checkchanges();
    return;
 }
 
@@ -111,6 +112,7 @@ else if(this->posit[linu][col]==16 && linu != lin)
 
   this->posit[linu][col] = this->posit[lin][col];
   this->posit[lin][col]=16;
+  checkchanges();
     return;
 }
 
@@ -119,6 +121,7 @@ else if(this->posit[lin][colr]==16 && colr != col)
 
   this->posit[lin][colr] = this->posit[lin][col];
   this->posit[lin][col]=16;
+  checkchanges();
     return;
 }
 
@@ -127,6 +130,7 @@ else if(this->posit[lin][coll]==16 && coll != col)
 
   this->posit[lin][coll] = this->posit[lin][col];
   this->posit[lin][col]=16;
+  checkchanges();
     return;
 }
 
@@ -353,243 +357,178 @@ int Jogo::getpos1()const
 {
     return pos1;
 }
-void Jogo::checkpos1(const int val)
-{
-        change(val);
-        int newvalue = getValue(0,0);
-        if (newvalue!=pos1)
-        {
-        pos1 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos2()const
 {
     return pos2;
 }
-void Jogo::checkpos2(const int val)
-{
-        change(val);
-        int newvalue = getValue(0,1);
-        if (newvalue!=pos2)
-        {
-        pos2 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos3()const
 {
     return pos3;
 }
-void Jogo::checkpos3(const int val)
-{
-        change(val);
-        int newvalue = getValue(0,2);
-        if (newvalue!=pos3)
-        {
-        pos3 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos4()const
 {
     return pos4;
 }
-void Jogo::checkpos4(const int val)
-{
-        change(val);
-        int newvalue = getValue(0,3);
-        if (newvalue!=pos4)
-        {
-        pos4 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos5()const
 {
     return pos5;
 }
-void Jogo::checkpos5(const int val)
-{
-        change(val);
-        int newvalue = getValue(1,0);
-        if (newvalue!=pos5)
-        {
-        pos5 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos6()const
 {
     return pos6;
 }
-void Jogo::checkpos6(const int val)
-{
-        change(val);
-        int newvalue = getValue(1,1);
-        if (newvalue!=pos6)
-        {
-        pos6 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos7()const
 {
     return pos7;
 }
-void Jogo::checkpos7(const int val)
-{
-        change(val);
-        int newvalue = getValue(1,2);
-        if (newvalue!=pos7)
-        {
-        pos7 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos8()const
 {
     return pos8;
 }
-void Jogo::checkpos8(const int val)
-{
-        change(val);
-        int newvalue = getValue(1,3);
-        if (newvalue!=pos8)
-        {
-        pos8 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos9()const
 {
     return pos9;
 }
-void Jogo::checkpos9(const int val)
-{
-        change(val);
-        int newvalue = getValue(2,0);
-        if (newvalue!=pos9)
-        {
-        pos9 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos10()const
 {
     return pos10;
 }
-void Jogo::checkpos10(const int val)
-{
-        change(val);
-        int newvalue = getValue(2,1);
-        if (newvalue!=pos10)
-        {
-        pos10 = val;
-        emit positChanged();
-        }
-}
+
 
 int Jogo::getpos11()const
 {
     return pos11;
 }
-void Jogo::checkpos11(const int val)
-{
-        change(val);
-        int newvalue = getValue(2,2);
-        if (newvalue!=pos11)
-        {
-        pos11 = val;
-        emit _11changed();
-        }
-}
+
 
 int Jogo::getpos12()const
 {
     return pos12;
 }
-void Jogo::checkpos12(const int val)
-{
-        change(val);
-        int newvalue = getValue(2,3);
-        if (newvalue != pos12)
-        {
-        pos12 = newvalue;
-        emit _12changed();
-        }
-}
+
 
 int Jogo::getpos13()const
 {
     return pos13;
 }
-void Jogo::checkpos13(const int val)
-{
-        change(val);
-        int newvalue = getValue(3,0);
-        if (newvalue!=pos13)
-        {
-        pos13 = newvalue;
-        emit _13changed();
-        }
-        else
-        return;
-}
+
 
 int Jogo::getpos14()const
 {
     return pos14;
 }
-void Jogo::checkpos14(const int val)
-{
-        change(val);
-        int newvalue = getValue(3,1);
-        if (newvalue!=pos14)
-        {
-        pos14 = newvalue;
-        emit _14changed();
-        }
-}
+
 
 int Jogo::getpos15()const
 {
     return pos15;
 }
-void Jogo::checkpos15(const int val)
-{
-        change(val);
-        int newvalue = getValue(3,2);
-        if (newvalue!=pos15)
-        {
-        pos15 = newvalue;
-        emit _15changed();
-        }
-}
+
 
 int Jogo::getpos16()const
 {
     return pos16;
 }
-void Jogo::checkpos16(const int val)
+
+void Jogo::checkchanges()
 {
-        if (val!=pos16)
-        change(val);
-        int newvalue = getValue(3,3);
-        if (newvalue!=pos16)
-        {
-        pos16 = newvalue;
-        emit _16changed();
-        }
-        else
-        return;
+
+    if (pos1!=getValue(0,0))
+    {
+      pos1=getValue(0,0);
+      emit _1changed();
+    }
+    if (pos2!=getValue(0,1))
+    {
+      pos2=getValue(0,1);
+      emit _2changed();
+    }
+    if (pos3!=getValue(0,2))
+    {
+      pos3=getValue(0,2);
+      emit _2changed();
+    }
+    if (pos4!=getValue(0,3))
+    {
+      pos4=getValue(0,3);
+      emit _4changed();
+    }
+    if (pos5!=getValue(1,0))
+    {
+      pos5=getValue(1,0);
+      emit _5changed();
+    }
+    if (pos6!=getValue(1,1))
+    {
+      pos6=getValue(1,1);
+      emit _6changed();
+    }
+    if (pos7!=getValue(1,2))
+    {
+      pos7=getValue(1,2);
+      emit _7changed();
+    }
+    if (pos8!=getValue(1,3))
+    {
+      pos8=getValue(1,3);
+      emit _8changed();
+    }
+    if (pos9!=getValue(2,0))
+    {
+      pos9=getValue(2,0);
+      emit _9changed();
+    }
+    if(pos10!=getValue(2,1))
+    {
+    pos10=getValue(2,1);
+    emit _10changed();
+    }
+    if(pos11!=getValue(2,2))
+    {
+    pos11=getValue(2,2);
+    emit _11changed();
+    }
+    if(pos12!=getValue(2,3))
+    {
+    pos12=getValue(2,3);
+    emit _12changed();
+    }
+    if(pos13!=getValue(3,0))
+    {
+    pos13=getValue(3,0);
+    emit _13changed();
+    }
+    if(pos14!=getValue(3,1))
+    {
+    pos14=getValue(3,1);
+    emit _14changed();
+    }
+    if(pos15!=getValue(3,2))
+    {
+    pos15=getValue(3,2);
+    emit _15changed();
+    }
+    if(pos16!=getValue(3,3))
+    {
+    pos16=getValue(3,3);
+    emit _16changed();
+    }
 }

@@ -22,12 +22,12 @@ Q_OBJECT
 //Q_PROPERTY(int pos8 READ getpos8 WRITE checkpos8 NOTIFY positChanged)
 //Q_PROPERTY(int pos9 READ getpos9 WRITE checkpos9 NOTIFY positChanged)
 //Q_PROPERTY(int pos10 READ getpos10 WRITE checkpos10 NOTIFY positChanged)
-Q_PROPERTY(int pos11 READ getpos11)
-Q_PROPERTY(int pos12 READ getpos12)
+Q_PROPERTY(int pos11 READ getpos11 NOTIFY _11changed)
+Q_PROPERTY(int pos12 READ getpos12 NOTIFY _12changed)
 //Q_PROPERTY(int pos13 READ getpos13 NOTIFY _13changed)
 //Q_PROPERTY(int pos14 READ getpos14 NOTIFY _14changed)
-Q_PROPERTY(int pos15 READ getpos15)
-Q_PROPERTY(int pos16 READ getpos16)
+Q_PROPERTY(int pos15 READ getpos15 NOTIFY _15changed)
+Q_PROPERTY(int pos16 READ getpos16 NOTIFY _16changed)
 
 private:
     int pos1;
@@ -72,7 +72,7 @@ public:
     void setTime();
     void setName(QString n);
     void communication();
-    void change(int num);
+
 
 
 public slots:
@@ -83,44 +83,40 @@ public slots:
     int getTime();
     int getMoves();
     bool checkV();
+    void change(int num);
 
 
     int getpos1()const;
-    void checkpos1(const int val);
-    int getpos2()const;
-    void checkpos2(const int val);
-    int getpos3()const;
-    void checkpos3(const int val);
-    int getpos4()const;
-    void checkpos4(const int val);
-    int getpos5()const;
-    void checkpos5(const int val);
-    int getpos6()const;
-    void checkpos6(const int val);
-    int getpos7()const;
-    void checkpos7(const int val);
-    int getpos8()const;
-    void checkpos8(const int val);
-    int getpos9()const;
-    void checkpos9(const int val);
-    int getpos10()const;
-    void checkpos10(const int val);
+        int getpos2()const;
+        int getpos3()const;
+        int getpos4()const;
+        int getpos5()const;
+        int getpos6()const;
+        int getpos7()const;
+        int getpos8()const;
+        int getpos9()const;
+        int getpos10()const;
     int getpos11()const;
-    void checkpos11(const int val);
     int getpos12()const;
-    void checkpos12(const int val);
     int getpos13()const;
-    void checkpos13(const int val);
     int getpos14()const;
-    void checkpos14(const int val);
     int getpos15()const;
-    void checkpos15(const int val);
     int getpos16()const;
-    void checkpos16(const int val);
 
 
+    void checkchanges();
 signals:
     void positChanged();
+    void _1changed();
+    void _2changed();
+    void _3changed();
+    void _4changed();
+    void _5changed();
+    void _6changed();
+    void _7changed();
+    void _8changed();
+    void _9changed();
+    void _10changed();
     void _11changed();
     void _12changed();
     void _13changed();

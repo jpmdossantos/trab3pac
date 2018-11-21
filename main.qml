@@ -398,11 +398,11 @@ ApplicationWindow {
                anchors.fill: parent
                propagateComposedEvents: true
                onClicked: {
-                   backend.checkpos11(parseInt(text11.text))
+                   backend.change(parseInt(text11.text))
                    console.log("click11")
                    console.log(parseInt(backend.pos11))
-                   text12.text = backend.pos11
-                   root.update()
+                   checkvisibility()
+
                }
            }
 
@@ -448,10 +448,11 @@ ApplicationWindow {
                anchors.fill: parent
                propagateComposedEvents: true
                onClicked: {
-                   backend.checkpos12(parseInt(text12.text))
+                   backend.change(parseInt(text12.text))
                    console.log("click12")
                    console.log(parseInt(backend.pos12))
-                   text12.text = backend.pos12
+                   checkvisibility()
+
                }
            }
 
@@ -580,10 +581,11 @@ ApplicationWindow {
              anchors.fill: parent
              propagateComposedEvents: true
              onClicked: {
-               //backend.checkpos15(parseInt(text15.text))
+                 backend.change(parseInt(text15.text))
                  console.log("click15")
-                 console.log(backend.pos15)
-                 text15.update()
+                 console.log(parseInt(backend.pos15))
+                 checkvisibility()
+
              }
 }
             RadialGradient {
@@ -626,10 +628,11 @@ ApplicationWindow {
              anchors.fill: parent
              propagateComposedEvents: true
              onClicked: {
-               //backend.checkpos16(parseInt(text16.text))
+                 backend.change(parseInt(text16.text))
                  console.log("click16")
-                 console.log(backend.pos16)
-                 text16.update()
+                 console.log(parseInt(backend.pos16))
+                 checkvisibility()
+
              }
 }
             RadialGradient {
@@ -652,21 +655,53 @@ ApplicationWindow {
         }
 
     }
-    function check16(object)
+    function checkvisibility()
     {
+        console.log("o onze ta :")
+        console.log(text11.text)
+        console.log("o doze ta :")
+        console.log(text12.text)
+        console.log("o quinze ta :")
+        console.log(text15.text)
+        console.log("o dezesseis ta :")
         console.log(text16.text)
-        if (object == 16)
+
+        if (text11.text == 16)
         {
-        console.log("e mentira")
-            return false
+        outer11.visible = false
         }
         else
         {
-        console.log("e verdade")
-            return true
+        outer11.visible = true
+        }
+
+        if (text12.text == 16)
+        {
+        outer12.visible = false
+        }
+        else
+        {
+        outer12.visible = true
+        }
+
+        if (text15.text == 16)
+        {
+        outer15.visible = false
+        }
+        else
+        {
+        outer15.visible = true
+        }
+
+        if (text16.text == 16)
+        {
+        outer16.visible = 0
+        }
+        else
+        {
+        outer16.visible = 1
         }
 
     }
-
 
 }
