@@ -10,8 +10,12 @@
 class Jogo : public QObject
 {
 Q_OBJECT
-//Q_PROPERTY(int tempo READ getTime)
-//Q_PROPERTY(int jogadas READ getMoves)
+
+Q_PROPERTY(int tempo READ getTime NOTIFY timechanged)
+Q_PROPERTY(int jogadas READ getMoves NOTIFY movechanged)
+Q_PROPERTY(QString rectems READ getrecjogs NOTIFY recjogschanged)
+Q_PROPERTY(QString recjogs READ getrectems NOTIFY rectemschanged)
+Q_PROPERTY(bool vitoria READ checkV NOTIFY winchanged)
 Q_PROPERTY(int pos1 READ getpos1 NOTIFY _1changed)
 Q_PROPERTY(int pos2 READ getpos2 NOTIFY _2changed)
 Q_PROPERTY(int pos3 READ getpos3 NOTIFY _3changed)
@@ -46,6 +50,8 @@ private:
     int pos14;
     int pos15;
     int pos16;
+    QString recjogs;
+    QString rectems;
 
 
 
@@ -57,6 +63,7 @@ private:
     QTime timer;
     int jogadas;
     int tempo;
+    bool vitoria;
     QString name;
 
 
@@ -70,13 +77,14 @@ public:
 
 
     void setTime();
-    void setName(QString n);
-    void communication();
+
+
 
 
 
 public slots:
-
+    void programexit();
+    void communication();
     void shuffle();
     void shuffleeasy();
     int getValue(int lin, int col);
@@ -84,9 +92,12 @@ public slots:
     int getMoves();
     bool checkV();
     void change(int num);
+    void readfile();
 
+        void setName(QString n);
 
     int getpos1()const;
+
         int getpos2()const;
         int getpos3()const;
         int getpos4()const;
@@ -103,6 +114,8 @@ public slots:
     int getpos15()const;
     int getpos16()const;
 
+    QString getrecjogs();
+    QString getrectems();
 
     void checkchanges();
 signals:
@@ -123,6 +136,12 @@ signals:
     void _14changed();
     void _15changed();
     void _16changed();
+    void winchanged();
+    void movechanged();
+    void timechanged();
+    void namechanged();
+    void recjogschanged();
+    void rectemschanged();
 
 };
 

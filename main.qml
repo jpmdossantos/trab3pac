@@ -8,7 +8,156 @@ ApplicationWindow {
     width: 610
     height: 610
     visible: true
+    function checkvisibility()
+    {
+        if (text1.text == 16)
+        {
+        outer1.visible = false
+        }
+        else
+        {
+        outer1.visible = true
+        }
 
+        if (text2.text == 16)
+        {
+        outer2.visible = false
+        }
+        else
+        {
+        outer2.visible = true
+        }
+
+        if (text3.text == 16)
+        {
+        outer3.visible = false
+        }
+        else
+        {
+        outer3.visible = true
+        }
+
+        if (text4.text == 16)
+        {
+        outer4.visible = false
+        }
+        else
+        {
+        outer4.visible = true
+        }
+        if (text5.text == 16)
+        {
+        outer5.visible = false
+        }
+        else
+        {
+        outer5.visible = true
+        }
+        if (text6.text == 16)
+        {
+        outer6.visible = false
+        }
+        else
+        {
+        outer6.visible = true
+        }
+        if (text7.text == 16)
+        {
+        outer7.visible = false
+        }
+        else
+        {
+        outer7.visible = true
+        }
+        if (text8.text == 16)
+        {
+        outer8.visible = false
+        }
+        else
+        {
+        outer8.visible = true
+        }
+        if (text9.text == 16)
+        {
+        outer9.visible = false
+        }
+        else
+        {
+        outer9.visible = true
+        }
+        if (text10.text == 16)
+        {
+        outer10.visible = false
+        }
+        else
+        {
+        outer10.visible = true
+        }
+
+        if (text14.text == 16)
+        {
+        outer14.visible = false
+        }
+        else
+        {
+        outer14.visible = true
+        }
+
+        if (text13.text == 16)
+        {
+        outer13.visible = false
+        }
+        else
+        {
+        outer13.visible = true
+        }
+
+
+        if (text11.text == 16)
+        {
+        outer11.visible = false
+        }
+        else
+        {
+        outer11.visible = true
+        }
+
+        if (text12.text == 16)
+        {
+        outer12.visible = false
+        }
+        else
+        {
+        outer12.visible = true
+        }
+
+        if (text15.text == 16)
+        {
+        outer15.visible = false
+        }
+        else
+        {
+        outer15.visible = true
+        }
+
+        if (text16.text == 16)
+        {
+        outer16.visible = 0
+        }
+        else
+        {
+        outer16.visible = 1
+        }
+
+    }
+
+
+
+    Rectangle
+    {
+        id:gamescreen
+        visible: !startscreen.visible && !backend.vitoria
+        anchors.fill: parent
     Jogo {
         id: backend
     }
@@ -740,146 +889,311 @@ ApplicationWindow {
 
     }
 
-    function checkvisibility()
+
+}
+
+    Rectangle
     {
-        if (text1.text == 16)
-        {
-        outer1.visible = false
-        }
-        else
-        {
-        outer1.visible = true
-        }
-
-        if (text2.text == 16)
-        {
-        outer2.visible = false
-        }
-        else
-        {
-        outer2.visible = true
-        }
-
-        if (text3.text == 16)
-        {
-        outer3.visible = false
-        }
-        else
-        {
-        outer3.visible = true
-        }
-
-        if (text4.text == 16)
-        {
-        outer4.visible = false
-        }
-        else
-        {
-        outer4.visible = true
-        }
-        if (text5.text == 16)
-        {
-        outer5.visible = false
-        }
-        else
-        {
-        outer5.visible = true
-        }
-        if (text6.text == 16)
-        {
-        outer6.visible = false
-        }
-        else
-        {
-        outer6.visible = true
-        }
-        if (text7.text == 16)
-        {
-        outer7.visible = false
-        }
-        else
-        {
-        outer7.visible = true
-        }
-        if (text8.text == 16)
-        {
-        outer8.visible = false
-        }
-        else
-        {
-        outer8.visible = true
-        }
-        if (text9.text == 16)
-        {
-        outer9.visible = false
-        }
-        else
-        {
-        outer9.visible = true
-        }
-        if (text10.text == 16)
-        {
-        outer10.visible = false
-        }
-        else
-        {
-        outer10.visible = true
-        }
-
-        if (text14.text == 16)
-        {
-        outer14.visible = false
-        }
-        else
-        {
-        outer14.visible = true
-        }
-
-        if (text13.text == 16)
-        {
-        outer13.visible = false
-        }
-        else
-        {
-        outer13.visible = true
-        }
+        id:startscreen
+        visible: true
+        anchors.fill: parent
+        Rectangle {
+        id: startbutton
+        width: (root.width - 50)/2
+        height: (root.height - 50)/4
+        visible: true
+        border.color: "#63B2F6"
+        border.width: 5
+        radius: 10
+        anchors {left: parent.left; leftMargin: root.width/3.7; top: parent.top; topMargin: root.height/4.5 }
+            Rectangle
+             {
+               anchors.centerIn: parent
+               width: startbutton.width - 10
+               height: startbutton.height -10
+               MouseArea {
+                 anchors.fill: parent
+                 propagateComposedEvents: true
+                 onClicked: {
+                     startscreen.visible = false;
+                     checkvisibility();
 
 
-        if (text11.text == 16)
-        {
-        outer11.visible = false
-        }
-        else
-        {
-        outer11.visible = true
+                 }
+               }
+                RadialGradient {
+                     anchors.fill: parent
+                     gradient: Gradient
+                     {
+                         GradientStop { position: 0.0; color: "#2795F6" }
+                         GradientStop { position: 0.5; color: outer1.border.color }
+                      }
+
+                      Text{
+                           id: textstart
+                           anchors{centerIn: parent}
+                           text: "Start Game"
+                           font.family: "Helvetica"
+                           font.pointSize: outer1.height/3.5
+                           color: "white"
+                        }
+            }
+            }
+
         }
 
-        if (text12.text == 16)
-        {
-        outer12.visible = false
+        Rectangle {
+        id: rankbutton
+        width: (root.width - 50)/2
+        height: (root.height - 50)/4
+        visible: true
+        border.color: "#63B2F6"
+        border.width: 5
+        radius: 10
+        anchors {left: startbutton.left;  top: startbutton.bottom; topMargin: 10 }
+            Rectangle
+             {
+               anchors.centerIn: parent
+               width: rankbutton.width - 10
+               height: rankbutton.height -10
+               MouseArea {
+                 anchors.fill: parent
+                 propagateComposedEvents: true
+                 onClicked: {
+
+                    startscreen.visible = false;
+                     rankscreen.visible = true;
+                     backend.readfile();
+                 }
+               }
+                RadialGradient {
+                     anchors.fill: parent
+                     gradient: Gradient
+                     {
+                         GradientStop { position: 0.0; color: "#2795F6" }
+                         GradientStop { position: 0.5; color: outer1.border.color }
+                      }
+
+                      Text{
+                           id: textrank
+                           anchors{centerIn: parent}
+                           text: "Ranking"
+                           font.family: "Helvetica"
+                           font.pointSize: outer1.height/3.5
+                           color: "white"
+                        }
+            }
+            }
+
         }
-        else
+    }
+
+    Rectangle
+    {
+        id: rankscreen
+        visible: false
+        anchors.fill: parent
+        Text
         {
-        outer12.visible = true
+            id: moverankslabel
+            anchors {left: parent.left; leftMargin: 50 ;top:parent.top ;topMargin: 10}
+            text: "Jogadas"
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
+        }
+        Text
+        {
+            id: moveranks
+            anchors {left: moverankslabel.left ;top: moverankslabel.bottom}
+            text: backend.recjogs
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
         }
 
-        if (text15.text == 16)
+        Text
         {
-        outer15.visible = false
+            id: timerankslabel
+            anchors {right: parent.right ;rightMargin: 50 ;top:parent.top ;topMargin: 10}
+            text: "Tempo"
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
         }
-        else
+        Text
         {
-        outer15.visible = true
+            id: timeranks
+            anchors {right: timerankslabel.right ;top: timerankslabel.bottom}
+            text: backend.recjogs
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
         }
 
-        if (text16.text == 16)
-        {
-        outer16.visible = 0
+
+        Rectangle {
+        id: backbutton
+        width: (root.width - 50)/4
+        height: (root.height - 50)/8
+        visible: true
+        border.color: "#63B2F6"
+        border.width: 5
+        radius: 10
+        anchors {left: parent.left; leftMargin:10 ; bottom: parent.bottom; bottomMargin:10}
+            Rectangle
+             {
+               anchors.centerIn: parent
+               width: backbutton.width - 10
+               height: backbutton.height -10
+               MouseArea {
+                 anchors.fill: parent
+                 propagateComposedEvents: true
+                 onClicked: {
+                     rankscreen.visible = false;
+                     startscreen.visible = true;
+
+
+                 }
+               }
+                RadialGradient {
+                     anchors.fill: parent
+                     gradient: Gradient
+                     {
+                         GradientStop { position: 0.0; color: "#2795F6" }
+                         GradientStop { position: 0.5; color: outer1.border.color }
+                      }
+
+                      Text{
+                           id: backtext
+                           anchors{centerIn: parent}
+                           text: "Back"
+                           font.family: "Helvetica"
+                           font.pointSize: outer1.height/7
+                           color: "white"
+                        }
+            }
+            }
+
         }
-        else
+    }
+
+    Rectangle
+    {
+        id: winscreen
+        visible: backend.vitoria
+        anchors.fill: parent
+        Text
         {
-        outer16.visible = 1
+            id: congrats
+            anchors.centerIn: parent
+            text: "Vitória"
+            font.family: "Helvetica"
+            font.pointSize: parent.height/10
+            color: "black"
+
         }
+        Text
+        {
+            id: movelabel
+            anchors {left: congrats.left ;bottom:congrats.top}
+            text: "Jogadas: "
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
+        }
+        Text
+        {
+            id: moveqtd
+            anchors {left: movelabel.right ;bottom:congrats.top}
+            text: backend.jogadas
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
+        }
+
+        Text
+        {
+            id: timelabel
+            anchors {left: congrats.left ;bottom:movelabel.top}
+            text: "Tempo: "
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
+        }
+        Text
+        {
+            id: timeqtd
+            anchors {left: timelabel.right ;bottom:movelabel.top}
+            text: backend.tempo/1000
+            font.family: "Helvetica"
+            font.pointSize: parent.height/40
+            color: "black"
+
+        }
+
+        TextField {
+            id: nameentry
+            placeholderText: qsTr("Enter name")
+
+            anchors{left: congrats.left; leftMargin: 10;top: congrats.bottom}
+        }
+
+        Rectangle {
+        id: exitbutton
+        width: (root.width - 50)/4
+        height: (root.height - 50)/8
+        visible: true
+        border.color: "#63B2F6"
+        border.width: 5
+        radius: 10
+        anchors {left:nameentry.left; leftMargin: 30 ;top:nameentry.bottom; topMargin:5}
+            Rectangle
+             {
+               anchors.centerIn: parent
+               width: exitbutton.width - 10
+               height: exitbutton.height -10
+               MouseArea {
+                 anchors.fill: parent
+                 propagateComposedEvents: true
+                 onClicked: {
+                backend.setName(nameentry.text);
+                backend.communication();
+                winscreen.visible = false;
+                  Qt.quit();
+
+                 }
+               }
+                RadialGradient {
+                     anchors.fill: parent
+                     gradient: Gradient
+                     {
+                         GradientStop { position: 0.0; color: "#2795F6" }
+                         GradientStop { position: 0.5; color: outer1.border.color }
+                      }
+
+                      Text{
+                           id: exittext
+                           anchors{centerIn: parent}
+                           text: "ok"
+                           font.family: "Helvetica"
+                           font.pointSize: outer1.height/7
+                           color: "white"
+                        }
+            }
+            }
+
+        }
+
+
 
     }
+
 }

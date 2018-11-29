@@ -9,6 +9,7 @@
 #include <QStringList>
 #include <QMultiMap>
 #include <QList>
+
 #include <QtAlgorithms>
 
 using namespace std;
@@ -31,11 +32,11 @@ Jogo::Jogo(QObject *parent) : QObject(parent)
         start++;
       }
     }
-    this->jogadas = 15;
+    this->jogadas = 0;
     this->tempo = 0;
     this->name = "";
     this->timer.start();
-    shuffleeasy();
+    shuffle();
     pos1=getValue(0,0);
     pos2=getValue(0,1);
     pos3=getValue(0,2);
@@ -52,6 +53,7 @@ Jogo::Jogo(QObject *parent) : QObject(parent)
     pos14=getValue(3,1);
     pos15=getValue(3,2);
     pos16=getValue(3,3);
+    vitoria = false;
 }
 
 void Jogo::change(int num)
@@ -67,6 +69,7 @@ void Jogo::change(int num)
   int lin=0,col=0;
 
   this->jogadas += 1;
+  emit movechanged();
 
   for (int i=0;i<=3;i++){
     for (int j=0;j<=3;j++){
@@ -177,6 +180,11 @@ bool Jogo::checkV(){
       }
     }
   }
+  if (vitoria!=status)
+  {
+  vitoria = status;
+  emit winchanged();
+  }
   return status;
 }
 
@@ -224,12 +232,12 @@ void Jogo::shuffleeasy(){
     this->posit[1][3]=8;
     this->posit[2][0]=9;
     this->posit[2][1]=10;
-    this->posit[2][2]=16;
+    this->posit[2][2]=11;
     this->posit[2][3]=12;
     this->posit[3][0]=13;
     this->posit[3][1]=14;
-    this->posit[3][2]=15;
-    this->posit[3][3]=11;
+    this->posit[3][2]=16;
+    this->posit[3][3]=15;
 }
 
 int Jogo::getTime()
@@ -241,6 +249,7 @@ int Jogo::getMoves(){
 }
 void Jogo::setTime(){
   this->tempo = timer.elapsed();
+    emit timechanged();
 }
 
 void Jogo::setName(QString n){
@@ -259,9 +268,9 @@ void Jogo::communication(){
     int temp=0;
     QString lastkey;
 
-    orderjog.append(this->getMoves()/15);
+    orderjog.append(this->getMoves());
     ordertem.append(this->getTime()/1000);
-    mapjog.insert(this->name,this->getMoves()/15);
+    mapjog.insert(this->name,this->getMoves());
     maptem.insert(this->name,this->getTime()/1000);
 
     rjog.open(QIODevice::ReadWrite | QIODevice::Text);
@@ -531,4 +540,77 @@ void Jogo::checkchanges()
     pos16=getValue(3,3);
     emit _16changed();
     }
+
+    checkV();
+    setTime();
+}
+
+void Jogo::programexit()
+{
+
+}
+
+
+void Jogo::readfile()
+{
+QFile rjog("recordjog.txt");
+QFile rtem("recordtem.txt");
+QString line;
+QStringList parts;
+QList <int> orderjog;
+QList <int> ordertem;
+QMultiMap<QString,int> mapjog;
+QMultiMap<QString,int> maptem;
+int temp=0;
+QString lastkey;
+
+orderjog.append(this->getMoves());
+ordertem.append(this->getTime()/1000);
+mapjog.insert(this->name,this->getMoves());
+maptem.insert(this->name,this->getTime()/1000);
+
+rjog.open(QIODevice::ReadWrite | QIODevice::Text);
+if (!rjog.isOpen()){
+    qDebug()<<"não abriu";
+    return;
+}
+
+QTextStream in(&rjog);
+
+while (!in.atEnd()){
+line = in.readLine();
+}
+
+recjogs = line;
+emit recjogschanged();
+
+rjog.close();
+
+rtem.open(QIODevice::ReadWrite | QIODevice::Text);
+if (!rtem.isOpen()){
+    qDebug()<<"não abriu";
+    return;
+}
+
+QTextStream in2(&rtem);
+
+while (!in2.atEnd()){
+line = in2.readLine();
+parts = line.split(": ");
+}
+
+rectems = line;
+emit rectemschanged();
+
+rtem.close();
+}
+
+QString Jogo::getrecjogs()
+{
+    return recjogs;
+}
+
+QString Jogo::getrectems()
+{
+    return rectems;
 }
